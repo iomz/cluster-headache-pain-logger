@@ -1,6 +1,6 @@
 class CreateStocks < ActiveRecord::Migration
-  def change
-    create_table :stocks, :id do |t|
+  def self.up
+    create_table :stocks do |t|
       t.integer :user_id
       t.integer :drug_id
       t.integer :quantity_available
@@ -8,5 +8,9 @@ class CreateStocks < ActiveRecord::Migration
 
       t.timestamps
     end
+  end
+
+  def self.down
+    drop_table :stocks
   end
 end

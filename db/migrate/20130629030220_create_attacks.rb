@@ -1,6 +1,6 @@
 class CreateAttacks < ActiveRecord::Migration
-  def change
-    create_table :attacks, :id do |t|
+  def self.up
+    create_table :attacks do |t|
       t.integer :user_id, :null => false
       t.datetime :started_at
       t.datetime :ended_at
@@ -9,5 +9,9 @@ class CreateAttacks < ActiveRecord::Migration
 
       t.timestamps
     end
+  end
+
+  def self.down
+    drop_table :attacks
   end
 end
