@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20130629053624) do
 
   create_table "attacks", force: true do |t|
-    t.integer  "user_id",    null: false
+    t.integer  "user_id"
     t.datetime "started_at"
     t.datetime "ended_at"
     t.integer  "pain_level"
