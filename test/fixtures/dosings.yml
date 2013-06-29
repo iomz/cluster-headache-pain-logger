@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  attack_id: 1
+  drug_id: 1
+  dosed_at: 2013-06-29 12:19:56
+
+two:
+  attack_id: 1
+  drug_id: 1
+  dosed_at: 2013-06-29 12:19:56
