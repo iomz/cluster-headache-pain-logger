@@ -1,30 +1,46 @@
 ChPainLogger::Application.routes.draw do
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root :to => 'welcome#index'
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  devise_for :users
+  get 'attacks', :to => 'attacks#index', :as => :user_root
+  get 'prescriptions', :to => 'prescriptions#index', :as => :user_root
+  get 'drugs', :to => 'drugs#index', :as => :user_root
+  get 'dosings', :to => 'dosings#index', :as => :user_root
+  get 'stocks', :to => 'stocks#index', :as => :user_root
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  resources :attacks, :only => [ :index, :create ] do
+    put :finish, :on => :member
+    put :unifinish, :on => :member
+    get :done, :on => :collection
+  end
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  resources :prescriptions, :only => [ :index, :create ] do
+    put :finish, :on => :member
+    put :unifinish, :on => :member
+    get :done, :on => :collection
+  end
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+  resources :drugs, :only => [ :index, :create ] do
+    put :finish, :on => :member
+    put :unifinish, :on => :member
+    get :done, :on => :collection
+  end
+
+  resources :dosings, :only => [ :index, :create ] do
+    put :finish, :on => :member
+    put :unifinish, :on => :member
+    get :done, :on => :collection
+  end
+
+  resources :stocks, :only => [ :index, :create ] do
+    put :finish, :on => :member
+    put :unifinish, :on => :member
+    get :done, :on => :collection
+  end
 
   # Example resource route with sub-resources:
   #   resources :products do

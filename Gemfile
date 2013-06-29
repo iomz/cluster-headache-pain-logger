@@ -43,3 +43,8 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# For mail login
+gem 'will_paginate'
+gem 'devise'
+gem 'protected_attributes'
