@@ -1,6 +1,6 @@
 class CreateStocks < ActiveRecord::Migration
   def change
-    create_table :stocks do |t|
+    create_table :stocks, :id do |t|
       t.integer :user_id
       t.integer :drug_id
       t.integer :quantity_available

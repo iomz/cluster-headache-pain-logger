@@ -1,6 +1,6 @@
 class CreateAttacks < ActiveRecord::Migration
   def change
-    create_table :attacks do |t|
+    create_table :attacks, :id do |t|
       t.integer :user_id, :null => false
       t.datetime :started_at
       t.datetime :ended_at
