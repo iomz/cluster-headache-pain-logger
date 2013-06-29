@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  drug_name: MyString
+  price: 1
+  general_name: MyString
+
+two:
+  drug_name: MyString
+  price: 1
+  general_name: MyString
