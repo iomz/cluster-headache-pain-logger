@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>User</th>
       <th>Started at</th>
       <th>Ended at</th>
@@ -17,6 +18,7 @@
   <tbody>
     <% @attacks.each do |attack| %>
       <tr>
+        <td><%= attack.id %></td>
         <td><%= attack.user_id %></td>
         <td><%= attack.started_at %></td>
         <td><%= attack.ended_at %></td>

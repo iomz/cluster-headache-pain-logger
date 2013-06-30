@@ -16,6 +16,9 @@ class DosingsController < ApplicationController
   # GET /dosings/new
   def new
     @dosing = Dosing.new
+    #last = Stock.order(:updated_at).where(:user_id => @dosing.user_id, :drug_id => @dosing.drug_id).last.quantity_available
+    #left = last != NULL ? last - 1 : 0
+    #Stock.create(:user_id => @dosing.user_id, :drug_id => @dosing.drug_id, :quantity_available => left)
   end
 
   # GET /dosings/1/edit
