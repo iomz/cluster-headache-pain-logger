@@ -1,0 +1,28 @@
+table.attacks {
+  width: 560px;  
+  margin: 5px auto;  
+  background-color: #eee;  
+  border-collapse: collapse;  
+  border-spacing: 0;
+}
+
+table.attacks tr {
+  border: solid 1px #eee;
+}
+
+table.attacks td {
+  padding: 5px;
+}
+
+table.attacks col.started_at {
+}
+table.attacks col.ended_at {
+}
+table.attacks col.pain_level {
+}
+table.attacks col.comment {
+}
+table.attacks col.created_at {
+}
+table.attacks col.updated_at {
+}

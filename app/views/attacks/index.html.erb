@@ -1,2 +1,24 @@
-<h1>Attacks#index</h1>
-<p>Find me in app/views/attacks/index.html.erb</p>
+<h1>Attack history</h1>
+
+<%= form_for :attack do |f| %>
+<ul>
+  <li><%= f.label :user_id %><%= f.select :user_id, (0..1) %></li>
+  <li><%= f.label :started_at %><%= f.datetime_select :started_at, :ampm => true, :minute_step => 5 %></li>
+  <li><%= f.label :ended_at %><%= f.datetime_select :ended_at, :ampm => true, :minute_step => 5 %></li>
+  <li><%= f.label :pain_level %><%= f.select :pain_level, (1..10) %></li>
+  <li><%= f.label :comment %><%= f.text_field :comment %></li>
+  <li><%= f.submit %></li>
+</ul>
+<% end %>
+
+<table class="attacks">
+  <col class="started_at" />
+  <col class="ended_at" />
+  <col class="pain_level" />
+  <col class="comment" />
+  <col class="created_at" />
+  <col class="updated_at" />
+  <% @attacks.each do |attack| %>
+    <%= render 'attack', :attack => attack %>
+  <% end %>
+</table>

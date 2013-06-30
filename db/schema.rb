@@ -14,10 +14,10 @@
 ActiveRecord::Schema.define(version: 20130629053624) do
 
   create_table "attacks", force: true do |t|
-    t.integer  "user_id"
-    t.datetime "started_at"
-    t.datetime "ended_at"
-    t.integer  "pain_level"
+    t.integer  "user_id",                                     null: false
+    t.datetime "started_at", default: '-4712-01-01 00:00:00'
+    t.datetime "ended_at",   default: '-4712-01-01 00:00:00'
+    t.integer  "pain_level", default: 5
     t.string   "comment"
     t.datetime "created_at"
     t.datetime "updated_at"

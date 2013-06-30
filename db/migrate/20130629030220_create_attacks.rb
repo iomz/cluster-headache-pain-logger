@@ -1,10 +1,10 @@
 class CreateAttacks < ActiveRecord::Migration
   def self.up
     create_table :attacks do |t|
-      t.integer :user_id
-      t.datetime :started_at
-      t.datetime :ended_at
-      t.integer :pain_level
+      t.integer :user_id, :null => false
+      t.datetime :started_at, :default => DateTime.new
+      t.datetime :ended_at, :default => DateTime.new
+      t.integer :pain_level, :default => 5
       t.string :comment
 
       t.timestamps
