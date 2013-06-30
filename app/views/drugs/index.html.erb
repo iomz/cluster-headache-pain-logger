@@ -18,9 +18,6 @@
         <td><%= drug.name %></td>
         <td><%= drug.price %></td>
         <td><%= drug.general_name %></td>
-        <td><%= link_to 'Show', drug %></td>
-        <td><%= link_to 'Edit', edit_drug_path(drug) %></td>
-        <td><%= link_to 'Destroy', drug, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Drug', new_drug_path %>
+<%= link_to 'Home', :user_root %>

@@ -1,47 +1,26 @@
 ChPainLogger::Application.routes.draw do
   
-  resources :stocks
-
-  resources :prescriptions
-
-  resources :drugs
-
-  resources :dosings
-
-  resources :attacks
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   root :to => 'welcome#index'
 
-  resources :attacks, :only => [ :index, :create ] do
-    put :finish, :on => :member
-    put :unifinish, :on => :member
-    get :done, :on => :collection
+  devise_for :users do
+    get 'home', :to => 'home#index', :as => :user_root
+    get 'attacks', :to => 'attacks#index', :as => :user_attacks
+    get 'dosings', :to => 'dosings#index', :as => :user_dosings
+    get 'prescriptions', :to => 'prescriptions#index', :as => :user_prescriptions
+    get 'stocks', :to => 'stocks#index', :as => :user_stocks
+    get '/users/sign_out' => 'devise/sessions#destroy'
   end
+  resources :attacks
+  
+  resources :dosings
 
-  resources :prescriptions, :only => [ :index, :create ] do
-    put :finish, :on => :member
-    put :unifinish, :on => :member
-    get :done, :on => :collection
-  end
+  resources :drugs
 
-  resources :drugs, :only => [ :index, :create ] do
-    put :finish, :on => :member
-    put :unifinish, :on => :member
-    get :done, :on => :collection
-  end
+  resources :prescriptions
+    
+  resources :stocks
 
-  resources :dosings, :only => [ :index, :create ] do
-    put :finish, :on => :member
-    put :unifinish, :on => :member
-    get :done, :on => :collection
-  end
-
-  resources :stocks, :only => [ :index, :create ] do
-    put :finish, :on => :member
-    put :unifinish, :on => :member
-    get :done, :on => :collection
-  end
 end

@@ -1,10 +1,11 @@
 class AttacksController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_attack, only: [:show, :edit, :update, :destroy]
 
   # GET /attacks
   # GET /attacks.json
   def index
-    @attacks = Attack.all
+    @attacks = Attack.where(:user_id => current_user.id)
   end
 
   # GET /attacks/1

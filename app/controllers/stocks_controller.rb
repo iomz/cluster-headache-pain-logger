@@ -1,10 +1,11 @@
 class StocksController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_stock, only: [:show, :edit, :update, :destroy]
 
   # GET /stocks
   # GET /stocks.json
   def index
-    @stocks = Stock.all
+    @stocks = Stock.where(:user_id => current_user.id)
   end
 
   # GET /stocks/1

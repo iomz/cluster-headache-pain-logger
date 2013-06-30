@@ -1,10 +1,11 @@
 class PrescriptionsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_prescription, only: [:show, :edit, :update, :destroy]
 
   # GET /prescriptions
   # GET /prescriptions.json
   def index
-    @prescriptions = Prescription.all
+    @prescriptions = Prescription.where(:user_id => current_user.id)
   end
 
   # GET /prescriptions/1

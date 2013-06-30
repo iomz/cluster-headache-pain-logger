@@ -1,10 +1,11 @@
 class DosingsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_dosing, only: [:show, :edit, :update, :destroy]
 
   # GET /dosings
   # GET /dosings.json
   def index
-    @dosings = Dosing.all
+    @dosings = Dosing.where(:user_id => current_user.id)
   end
 
   # GET /dosings/1
