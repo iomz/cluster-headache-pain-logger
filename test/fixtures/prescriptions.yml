@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  user_name: MyString
-  prescribed_at: 2013-06-29
+  user_id: 1
+  prescribed_at: 2013-06-30
   drug_id: 1
+  quantity: 1
   quantity: 1
 
 two:
-  user_name: MyString
-  prescribed_at: 2013-06-29
+  user_id: 1
+  prescribed_at: 2013-06-30
   drug_id: 1
+  quantity: 1
   quantity: 1

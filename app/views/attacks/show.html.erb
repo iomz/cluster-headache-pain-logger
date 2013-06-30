@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @attack.user_id %>
+</p>
+
+<p>
+  <strong>Started at:</strong>
+  <%= @attack.started_at %>
+</p>
+
+<p>
+  <strong>Ended at:</strong>
+  <%= @attack.ended_at %>
+</p>
+
+<p>
+  <strong>Pain level:</strong>
+  <%= @attack.pain_level %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @attack.comment %>
+</p>
+
+<%= link_to 'Edit', edit_attack_path(@attack) %> |
+<%= link_to 'Back', attacks_path %>

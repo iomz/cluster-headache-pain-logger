@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  user: 1
-  drug: 1
-  quantity: 1
+  user_id: 1
+  drug_id: 1
+  quantity_available: 1
 
 two:
-  user: 1
-  drug: 1
-  quantity: 1
+  user_id: 1
+  drug_id: 1
+  quantity_available: 1

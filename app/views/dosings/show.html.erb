@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Attack:</strong>
+  <%= @dosing.attack_id %>
+</p>
+
+<p>
+  <strong>Drug:</strong>
+  <%= @dosing.drug_id %>
+</p>
+
+<p>
+  <strong>Dosed at:</strong>
+  <%= @dosing.dosed_at %>
+</p>
+
+<%= link_to 'Edit', edit_dosing_path(@dosing) %> |
+<%= link_to 'Back', dosings_path %>

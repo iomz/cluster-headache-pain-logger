@@ -1,5 +1,15 @@
 ChPainLogger::Application.routes.draw do
   
+  resources :stocks
+
+  resources :prescriptions
+
+  resources :drugs
+
+  resources :dosings
+
+  resources :attacks
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

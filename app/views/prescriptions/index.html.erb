@@ -1,2 +1,35 @@
-<h1>Prescriptions#index</h1>
-<p>Find me in app/views/prescriptions/index.html.erb</p>
+<h1>Listing prescriptions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Prescribed at</th>
+      <th>Drug</th>
+      <th>Quantity</th>
+      <th>Quantity</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prescriptions.each do |prescription| %>
+      <tr>
+        <td><%= prescription.user_id %></td>
+        <td><%= prescription.prescribed_at %></td>
+        <td><%= prescription.drug_id %></td>
+        <td><%= prescription.quantity %></td>
+        <td><%= prescription.quantity %></td>
+        <td><%= link_to 'Show', prescription %></td>
+        <td><%= link_to 'Edit', edit_prescription_path(prescription) %></td>
+        <td><%= link_to 'Destroy', prescription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Prescription', new_prescription_path %>

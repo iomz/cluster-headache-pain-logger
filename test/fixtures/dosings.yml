@@ -3,9 +3,9 @@
 one:
   attack_id: 1
   drug_id: 1
-  dosed_at: 2013-06-29 12:19:56
+  dosed_at: 2013-06-30 11:59:45
 
 two:
   attack_id: 1
   drug_id: 1
-  dosed_at: 2013-06-29 12:19:56
+  dosed_at: 2013-06-30 11:59:45
