@@ -1,3 +1,4 @@
 # Create user iomz@sfc.wide.ad.jp with passwd:hogehoge
-
-User.create(:email => 'iomz@sfc.wide.ad.jp', :encrypted_password => '$2a$10$1UFrz3WddKQ.M6jObkL7B.PsqMNQXnHwNauSD3qMCNNQGigQ73AYy')
+1.upto(3) do |n|
+  User.create!(email: "test#{n}@test.com", password: "password", password_confirmation: "password")
+end

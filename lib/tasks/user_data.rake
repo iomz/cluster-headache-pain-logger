@@ -1,3 +1,4 @@
+=begin
 namespace :db do
   desc "Create a test user"
   task populate: :environment do
@@ -6,3 +7,4 @@ namespace :db do
     end
   end
 end
+=end
