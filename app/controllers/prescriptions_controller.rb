@@ -29,9 +29,14 @@ class PrescriptionsController < ApplicationController
   # POST /prescriptions.json
   def create
     @prescription = Prescription.new(prescription_params)
+    @prescription.user_id = current_user.id
 
     respond_to do |format|
       if @prescription.save
+        new_quantity = Stock.where(:user_id => current_user.id).order("updated_at DESC").first.quantity_available + @prescription.quantity
+        new_drug_id = @prescription.drug_id
+        @stock = Stock.new(user_id: current_user.id, quantity_available: new_quantity, drug_id: new_drug_id)
+        @stock.save
         format.html { redirect_to @prescription, notice: 'Prescription was successfully created.' }
         format.json { render action: 'show', status: :created, location: @prescription }
       else

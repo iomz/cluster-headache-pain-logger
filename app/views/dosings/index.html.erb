@@ -1,13 +1,13 @@
 <h1>Listing dosings</h1>
 
+<%= link_to 'New Dosing', new_dosing_path, :class => "btn btn-primary"  %>
+
 <table class="tablesorter">
   <thead>
     <tr>
       <th>Attack</th>
       <th>Drug</th>
       <th>Dosed at</th>
-      <th>Edit</th>
-      <th>Delete</th>
     </tr>
   </thead>
 
@@ -17,15 +17,12 @@
         <td class='cells'><%= Attack.find(dosing.attack_id).started_at.to_s.sub(" UTC", "") %></td>
         <td class='cells'><%= dosing.dosed_at.to_s.sub(" UTC", "") %></td>
         <td class='cells'><%= Drug.find(dosing.drug_id).name %></td>
-        <td class='cells'><%= link_to 'Edit', edit_dosing_path(dosing) %></td>
-        <td class='cells'><%= link_to 'Destroy', dosing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class='cells'><%= link_to 'Edit', edit_dosing_path(dosing), :class => "btn btn-info" %></td>
+        <td class='cells'><%= link_to 'Destroy', dosing, method: :delete, :class => "btn btn-danger", data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Dosing', new_dosing_path %>
-<%= link_to 'Home', :user_root %>
 

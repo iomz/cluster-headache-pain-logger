@@ -47,10 +47,10 @@
           <a class="brand" href="/">Cluster Headache Pain Logger</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
+              <li><%= link_to 'Drugs', [ :drugs ] %></li>
               <% if user_signed_in? %>
                 <li><%= link_to 'Attacks', [ :user_attacks ] %></li>
                 <li><%= link_to 'Dosings', [ :user_dosings ] %></li>
-                <li><%= link_to 'Drugs', [ :drugs ] %></li>
                 <li><%= link_to 'Prescriptions', [ :user_prescriptions ] %></li>
                 <li><%= link_to 'Stocks', [ :user_stocks ] %></li>
               <% end %>

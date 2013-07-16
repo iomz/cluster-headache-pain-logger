@@ -1,24 +1,24 @@
 <h1>Listing prescriptions</h1>
 
+<%= link_to 'New Prescription', new_prescription_path , :class => "btn btn-primary" %>
+
 <table class="tablesorter">
   <thead>
     <tr>
       <th>Prescribed at</th>
       <th>Drug</th>
       <th>Quantity</th>
-      <th>Edit</th>
-      <th>Delete</th>
     </tr>
   </thead>
 
   <tbody>
     <% @prescriptions.each do |prescription| %>
       <tr>
-        <td><%= prescription.prescribed_at %></td>
-        <td><%= Drug.find(prescription.drug_id).name %></td>
-        <td><%= prescription.quantity %></td>
-        <td><%= link_to 'Edit', edit_prescription_path(prescription) %></td>
-        <td><%= link_to 'Destroy', prescription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class='cells'><%= prescription.prescribed_at %></td>
+        <td class='cells'><%= Drug.find(prescription.drug_id).name %></td>
+        <td class='cells'><%= prescription.quantity %></td>
+        <td class='cells'><%= link_to 'Edit', edit_prescription_path(prescription) , :class => "btn btn-info" %></td>
+        <td class='cells'><%= link_to 'Destroy', prescription, method: :delete, :class => "btn btn-danger", data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,5 +26,3 @@
 
 <br>
 
-<%= link_to 'New Prescription', new_prescription_path %>
-<%= link_to 'Home', :user_root %>

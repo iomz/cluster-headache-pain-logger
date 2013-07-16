@@ -1,5 +1,7 @@
 <h1>Listing attacks</h1>
 
+<%= link_to 'New Attack', new_attack_path, :class => "btn btn-primary" %>
+
 <table class="tablesorter">
   <thead>
     <tr>
@@ -7,8 +9,6 @@
       <th>Ended at</th>
       <th>Pain level</th>
       <th>Comment</th>
-      <th>Edit</th>
-      <th>Delete</th>
     </tr>
   </thead>
 
@@ -19,14 +19,11 @@
         <td class='cells'><%= attack.ended_at.to_s.sub(" UTC", "") %></td>
         <td class='cells'><%= attack.pain_level %></td>
         <td class='cells'><%= attack.comment %></td>
-        <td class='cells'><%= link_to 'Edit', edit_attack_path(attack) %></td>
-        <td class='cells'><%= link_to 'Destroy', attack, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class='cells'><%= link_to 'Edit', edit_attack_path(attack), :class => "btn btn-info" %></td>
+        <td class='cells'><%= link_to 'Destroy', attack, method: :delete, :class => "btn btn-danger", data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Attack', new_attack_path %>
-<%= link_to 'Home', :user_root %>
