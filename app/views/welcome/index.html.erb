@@ -1,5 +1,5 @@
-<h1>Welcome to Cluster Headache Pain Logger</h1>
-<p><%= link_to 'Login', [ :new, :user_session ] %></p>
-<p><%= link_to 'Register', [ :new, :user_registration ] %></p>
-<p><%= link_to 'Reset password', [ :new, :user_password ] %></p>
+<h1><%= image_tag 'chpl_logo.png', :size => '131x65', :alt => 'Site Logo' %></h1>
+<p><%= link_to "Login", new_user_session_path, :class => "btn btn-primary" %>
+ <%= link_to 'Register', new_user_registration_path, :class => "btn btn-success" %></p>
+<p><%= link_to 'Reset password', new_user_password_path, :class => "btn btn-warning" %></p>
 <%# <p><%= link_to 'Resend confirmation e-mail', [ :new, :user_confirmation ] %>

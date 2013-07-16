@@ -26,6 +26,7 @@ class AttacksController < ApplicationController
   # POST /attacks.json
   def create
     @attack = Attack.new(attack_params)
+    @attack.user_id = current_user.id
 
     respond_to do |format|
       if @attack.save
@@ -55,6 +56,10 @@ class AttacksController < ApplicationController
   # DELETE /attacks/1
   # DELETE /attacks/1.json
   def destroy
+    @dosings = Dosing.where(:attack_id => @attack.id)
+    @dosings.each do |dd|
+      dd.destroy
+    end
     @attack.destroy
     respond_to do |format|
       format.html { redirect_to attacks_url }

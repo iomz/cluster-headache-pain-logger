@@ -52,15 +52,10 @@
                 <li><%= link_to 'Dosings', [ :user_dosings ] %></li>
                 <li><%= link_to 'Drugs', [ :drugs ] %></li>
                 <li><%= link_to 'Prescriptions', [ :user_prescriptions ] %></li>
-                <li><%= link_to 'Stocks', [ :user_stocks ] %></li>            </ul>
+                <li><%= link_to 'Stocks', [ :user_stocks ] %></li>
               <% end %>
-            <div class="pull-right">
-              <% if user_signed_in? %>
-                <%= link_to "Sign out from #{current_user.email}", destroy_user_session_path, :method => "DELETE", :class => "btn btn-danger" %>
-              <% else %>
-                <%= link_to "Login", new_user_session_path, :class => "btn btn-primary" %>
-              <% end %>
-            </div>
+            </ul>
+           </div>
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -68,14 +63,11 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-          </div><!--/.well -->
-        </div><!--/span-->
-        <div class="span9">
-          <%= bootstrap_flash %>
-          <%= yield %>
-        </div>
+        <% if user_signed_in? %>
+          <%= link_to "Sign out from #{current_user.email}", destroy_user_session_path, :method => "DELETE", :class => "btn btn-danger" %>
+       <% end %>
+         <%= bootstrap_flash %>
+        <%= yield %>
       </div><!--/row-->
 
       <footer>

@@ -1,26 +1,24 @@
 <h1>Listing dosings</h1>
 
-<table>
+<table class="tablesorter">
   <thead>
     <tr>
       <th>Attack</th>
       <th>Drug</th>
       <th>Dosed at</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
   </thead>
 
   <tbody>
     <% @dosings.each do |dosing| %>
       <tr>
-        <td><%= dosing.attack_id %></td>
-        <td><%= dosing.drug_id %></td>
-        <td><%= dosing.dosed_at %></td>
-        <td><%= link_to 'Show', dosing %></td>
-        <td><%= link_to 'Edit', edit_dosing_path(dosing) %></td>
-        <td><%= link_to 'Destroy', dosing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class='cells'><%= Attack.find(dosing.attack_id).started_at.to_s.sub(" UTC", "") %></td>
+        <td class='cells'><%= dosing.dosed_at.to_s.sub(" UTC", "") %></td>
+        <td class='cells'><%= Drug.find(dosing.drug_id).name %></td>
+        <td class='cells'><%= link_to 'Edit', edit_dosing_path(dosing) %></td>
+        <td class='cells'><%= link_to 'Destroy', dosing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

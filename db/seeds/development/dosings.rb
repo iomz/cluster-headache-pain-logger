@@ -1,6 +1,6 @@
 # Insert sample dosings for attack ID 0:19
 
-drug_id = 0
+drug_id = 1
 
 0.upto(59) do |n|
     dosed_t = DateTime.parse(n.days.from_now.to_time.to_s)

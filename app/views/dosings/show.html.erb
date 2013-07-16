@@ -2,12 +2,12 @@
 
 <p>
   <strong>Attack:</strong>
-  <%= @dosing.attack_id %>
+  <%= Attack.find(@dosing.attack_id).started_at %>
 </p>
 
 <p>
   <strong>Drug:</strong>
-  <%= @dosing.drug_id %>
+  <%= Drug.find(@dosing.drug_id).name %>
 </p>
 
 <p>

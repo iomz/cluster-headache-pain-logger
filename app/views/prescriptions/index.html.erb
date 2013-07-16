@@ -1,26 +1,22 @@
 <h1>Listing prescriptions</h1>
 
-<table>
+<table class="tablesorter">
   <thead>
     <tr>
-      <th>User</th>
       <th>Prescribed at</th>
       <th>Drug</th>
       <th>Quantity</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
   </thead>
 
   <tbody>
     <% @prescriptions.each do |prescription| %>
       <tr>
-        <td><%= prescription.user_id %></td>
         <td><%= prescription.prescribed_at %></td>
-        <td><%= prescription.drug_id %></td>
+        <td><%= Drug.find(prescription.drug_id).name %></td>
         <td><%= prescription.quantity %></td>
-        <td><%= link_to 'Show', prescription %></td>
         <td><%= link_to 'Edit', edit_prescription_path(prescription) %></td>
         <td><%= link_to 'Destroy', prescription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

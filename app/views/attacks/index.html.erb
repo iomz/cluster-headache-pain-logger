@@ -1,32 +1,26 @@
 <h1>Listing attacks</h1>
 
-<table>
+<table class="tablesorter">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>User</th>
       <th>Started at</th>
       <th>Ended at</th>
       <th>Pain level</th>
       <th>Comment</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
   </thead>
 
   <tbody>
     <% @attacks.each do |attack| %>
       <tr>
-        <td><%= attack.id %></td>
-        <td><%= attack.user_id %></td>
-        <td><%= attack.started_at %></td>
-        <td><%= attack.ended_at %></td>
-        <td><%= attack.pain_level %></td>
-        <td><%= attack.comment %></td>
-        <td><%= link_to 'Show', attack %></td>
-        <td><%= link_to 'Edit', edit_attack_path(attack) %></td>
-        <td><%= link_to 'Destroy', attack, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class='cells'><%= attack.started_at.to_s.sub(" UTC", "") %></td>
+        <td class='cells'><%= attack.ended_at.to_s.sub(" UTC", "") %></td>
+        <td class='cells'><%= attack.pain_level %></td>
+        <td class='cells'><%= attack.comment %></td>
+        <td class='cells'><%= link_to 'Edit', edit_attack_path(attack) %></td>
+        <td class='cells'><%= link_to 'Destroy', attack, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

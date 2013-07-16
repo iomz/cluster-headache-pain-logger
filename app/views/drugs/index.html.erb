@@ -1,23 +1,20 @@
 <h1>Listing drugs</h1>
 
-<table>
+<table class="tablesorter">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Price</th>
+      <th>Price (yen)</th>
       <th>General name</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @drugs.each do |drug| %>
       <tr>
-        <td><%= drug.name %></td>
-        <td><%= drug.price %></td>
-        <td><%= drug.general_name %></td>
+        <td class='cells'><%= drug.name %></td>
+        <td class='cells'><%= drug.price %></td>
+        <td class='cells'><%= drug.general_name %></td>
       </tr>
     <% end %>
   </tbody>
