@@ -14,8 +14,8 @@
   <tbody>
     <% @dosings.each do |dosing| %>
       <tr>
-        <td class='cells'><%= Attack.find(dosing.attack_id).started_at.to_s.sub(" UTC", "") %></td>
-        <td class='cells'><%= dosing.dosed_at.to_s.sub(" UTC", "") %></td>
+        <td class='cells'><%= Attack.find(dosing.attack_id).started_at.to_s.gsub(/:\d\d UTC/, "") %></td>
+        <td class='cells'><%= dosing.dosed_at.to_s.sub(/:\d\d UTC/, "") %></td>
         <td class='cells'><%= Drug.find(dosing.drug_id).name %></td>
         <td class='cells'><%= link_to 'Edit', edit_dosing_path(dosing), :class => "btn btn-info" %></td>
         <td class='cells'><%= link_to 'Destroy', dosing, method: :delete, :class => "btn btn-danger", data: { confirm: 'Are you sure?' } %></td>
