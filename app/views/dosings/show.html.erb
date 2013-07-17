@@ -2,7 +2,8 @@
 
 <p>
   <strong>Attack:</strong>
-  <%= Attack.find(@dosing.attack_id).started_at %>
+  <%= Attack.find(@dosing.attack_id).started_at.to_s.gsub(/:\d\d UTC/, "") %>,
+  <%= link_to 'Show', attack_path(Attack.find(@dosing.attack_id)) %>
 </p>
 
 <p>
@@ -12,7 +13,7 @@
 
 <p>
   <strong>Dosed at:</strong>
-  <%= @dosing.dosed_at %>
+  <%= @dosing.dosed_at.to_s.gsub(/:\d\d UTC/, "") %>
 </p>
 
 <%= link_to 'Edit', edit_dosing_path(@dosing) %> |

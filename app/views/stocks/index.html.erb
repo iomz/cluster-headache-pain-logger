@@ -1,6 +1,6 @@
 <h1>Listing stocks</h1>
 
-<table class="tablesorter">
+<table class="table">
   <thead>
     <tr>
       <th>Date</th>
@@ -12,7 +12,7 @@
   <tbody>
     <% @stocks.each do |stock| %>
       <tr>
-        <td class='cells'><%= stock.updated_at.to_s.sub(" UTC", "") %></td>
+        <td class='cells'><%= stock.updated_at.to_s.gsub(/ UTC/, "") %></td>
         <td class='cells'><%= Drug.find(stock.drug_id).name %></td>
         <td class='cells'><%= stock.quantity_available %></td>
       </tr>

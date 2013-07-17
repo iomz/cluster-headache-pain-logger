@@ -7,12 +7,12 @@
 
 <p>
   <strong>Started at:</strong>
-  <%= @attack.started_at %>
+  <%= @attack.started_at.to_s.gsub(/:\d\d UTC/, "") %>
 </p>
 
 <p>
   <strong>Ended at:</strong>
-  <%= @attack.ended_at %>
+  <%= @attack.ended_at.to_s.gsub(/:\d\d UTC/, "") %>
 </p>
 
 <p>
@@ -24,6 +24,15 @@
   <strong>Comment:</strong>
   <%= @attack.comment %>
 </p>
+
+<% Dosing.where(:attack_id => @attack.id).each do |dose| %>
+<p>
+  <strong>Dosing:</strong>
+  <%= dose.dosed_at.to_s.gsub(/:\d\d UTC/, "") %>,
+  <%= Drug.find(dose.drug_id).name %>, 
+  <%= link_to 'Show', dosing_path(dose) %>
+</p>
+<% end %>
 
 <%= link_to 'Edit', edit_attack_path(@attack) %> |
 <%= link_to 'Back', attacks_path %>

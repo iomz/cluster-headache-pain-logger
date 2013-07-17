@@ -16,9 +16,6 @@ class PrescriptionsController < ApplicationController
   # GET /prescriptions/new
   def new
     @prescription = Prescription.new
-    #last = Stock.order(:updated_at).where(:user_id => @dosing.user_id, :drug_id => @dosing.drug_id).last.quantity_available
-    #left = last != NULL ? last + @prescription.quantity : @prescription.quantity
-    #Stock.create(:user_id => @prescription.user_id, :drug_id => @prescription.drug_id, :quantity_available => left)
   end
 
   # GET /prescriptions/1/edit
@@ -33,9 +30,8 @@ class PrescriptionsController < ApplicationController
 
     respond_to do |format|
       if @prescription.save
-        new_quantity = Stock.where(:user_id => current_user.id).order("updated_at DESC").first.quantity_available + @prescription.quantity
-        new_drug_id = @prescription.drug_id
-        @stock = Stock.new(user_id: current_user.id, quantity_available: new_quantity, drug_id: new_drug_id)
+        new_quantity = Stock.where(:user_id => current_user.id, :drug_id => @prescription.drug_id).order("updated_at DESC").first.quantity_available + @prescription.quantity
+        @stock = Stock.new(user_id: current_user.id, quantity_available: new_quantity, drug_id: @prescription.drug_id)
         @stock.save
         format.html { redirect_to @prescription, notice: 'Prescription was successfully created.' }
         format.json { render action: 'show', status: :created, location: @prescription }
@@ -63,6 +59,10 @@ class PrescriptionsController < ApplicationController
   # DELETE /prescriptions/1
   # DELETE /prescriptions/1.json
   def destroy
+    new_quantity = Stock.where(:user_id => current_user.id, :drug_id => @prescription.drug_id).order("updated_at DESC").first.quantity_available - @prescription.quantity
+    @stock = Stock.new(user_id: current_user.id, quantity_available: new_quantity, drug_id: @prescription.drug_id)
+    @stock.save
+ 
     @prescription.destroy
     respond_to do |format|
       format.html { redirect_to prescriptions_url }

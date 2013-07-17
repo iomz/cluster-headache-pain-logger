@@ -5,7 +5,7 @@ class StocksController < ApplicationController
   # GET /stocks
   # GET /stocks.json
   def index
-    @stocks = Stock.where(:user_id => current_user.id)
+    @stocks = Stock.where(:user_id => current_user.id).order("updated_at ASC").group("drug_id")
   end
 
   # GET /stocks/1

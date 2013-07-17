@@ -12,15 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :prescribed_at %><br>
+    <strong>Prescribed at</strong><br>
     <%= f.date_select :prescribed_at %>
   </div>
   <div class="field">
-    <%= f.label :drug_id %><br>
-    <%= f.number_field :drug_id %>
+    <strong>Drug</strong><br>
+    <%= f.collection_select :drug_id, Drug.all, :id, :name %>
   </div>
   <div class="field">
-    <%= f.label :quantity %><br>
+    <strong>Quantity</strong><br>
     <%= f.number_field :quantity %>
   </div>
   <div class="actions">

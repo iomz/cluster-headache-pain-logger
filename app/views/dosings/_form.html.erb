@@ -12,15 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :attack_id %><br>
-    <%= f.number_field :attack_id %>
+    <strong>Attack</strong><br>
+    <%= f.collection_select :attack_id, Attack.where(:user_id => current_user.id), :id, :started_at %>
   </div>
-  <div class="field">
-    <%= f.label :drug_id %><br>
-    <%= f.number_field :drug_id %>
+   <div class="field">
+    <strong>Drug</strong><br>
+    <%= f.collection_select :drug_id, Drug.all, :id, :name %>
   </div>
-  <div class="field">
-    <%= f.label :dosed_at %><br>
+   <div class="field">
+    <strong>Dosed at</strong><br>
     <%= f.datetime_select :dosed_at %>
   </div>
   <div class="actions">
