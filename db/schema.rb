@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20130630051028) do
   create_table "attacks", force: true do |t|
     t.integer  "user_id",                null: false
     t.datetime "started_at"
-    t.datetime "ended_at"
+    t.integer  "duration"
     t.integer  "pain_level", default: 5
     t.string   "comment"
     t.datetime "created_at"
@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(version: 20130630051028) do
   end
 
   create_table "dosings", force: true do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "attack_id",  null: false
-    t.integer  "drug_id",    null: false
-    t.datetime "dosed_at"
+    t.integer  "user_id",                null: false
+    t.integer  "attack_id",              null: false
+    t.integer  "drug_id",                null: false
+    t.integer  "dosed_at",   default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end

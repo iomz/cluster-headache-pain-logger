@@ -20,8 +20,8 @@
     <%= f.collection_select :drug_id, Drug.all, :id, :name %>
   </div>
    <div class="field">
-    <strong>Dosed at</strong><br>
-    <%= f.datetime_select :dosed_at %>
+    <strong>Dosed at (mins later)</strong><br>
+    <%= f.number_field :dosed_at %>
   </div>
   <div class="actions">
     <%= f.submit %>

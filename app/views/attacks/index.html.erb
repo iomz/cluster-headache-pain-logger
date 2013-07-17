@@ -7,7 +7,7 @@
   <thead>
     <tr>
       <th>Started at</th>
-      <th>Ended at</th>
+      <th>Duration (mins)</th>
       <th>Pain level</th>
       <th>Comment</th>
     </tr>
@@ -17,7 +17,7 @@
     <% @attacks.each do |attack| %>
       <tr>
         <td class='cells'><%= attack.started_at.to_s.gsub(/:\d\d UTC/, "") %></td>
-        <td class='cells'><%= attack.ended_at.to_s.gsub(/:\d\d UTC/, "") %></td>
+        <td class='cells'><%= attack.duration %></td>
         <td class='cells'><%= attack.pain_level %></td>
         <td class='cells'><%= attack.comment %></td>
         <td class='cells'><%= link_to 'Edit', edit_attack_path(attack), :class => "btn btn-info" %></td>

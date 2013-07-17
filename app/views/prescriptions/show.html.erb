@@ -2,7 +2,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @prescription.user_id %>
+  <%= User.find(@prescription.user_id).email %>
 </p>
 
 <p>
@@ -12,7 +12,7 @@
 
 <p>
   <strong>Drug:</strong>
-  <%= @prescription.drug_id %>
+  <%= Drug.find(@prescription.drug_id).name %>
 </p>
 
 <p>

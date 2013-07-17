@@ -5,7 +5,7 @@ class PrescriptionsController < ApplicationController
   # GET /prescriptions
   # GET /prescriptions.json
   def index
-    @prescriptions = Prescription.where(:user_id => current_user.id)
+    @prescriptions = Prescription.where(:user_id => current_user.id).order("prescribed_at DESC")
   end
 
   # GET /prescriptions/1
@@ -29,8 +29,13 @@ class PrescriptionsController < ApplicationController
     @prescription.user_id = current_user.id
 
     respond_to do |format|
+      # FIXME: new and delete hook
       if @prescription.save
-        new_quantity = Stock.where(:user_id => current_user.id, :drug_id => @prescription.drug_id).order("updated_at DESC").first.quantity_available + @prescription.quantity
+        if (Stock.where(:user_id => current_user.id, :drug_id => @prescription.drug_id).first!= nil)
+          new_quantity = Stock.where(:user_id => current_user.id, :drug_id => @prescription.drug_id).order("updated_at DESC").first.quantity_available + @prescription.quantity
+        else
+          new_quantity = @prescription.quantity
+        end
         @stock = Stock.new(user_id: current_user.id, quantity_available: new_quantity, drug_id: @prescription.drug_id)
         @stock.save
         format.html { redirect_to @prescription, notice: 'Prescription was successfully created.' }

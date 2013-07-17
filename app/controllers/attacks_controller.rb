@@ -5,7 +5,7 @@ class AttacksController < ApplicationController
   # GET /attacks
   # GET /attacks.json
   def index
-    @attacks = Attack.where(:user_id => current_user.id)
+    @attacks = Attack.where(:user_id => current_user.id).order("started_at DESC")
   end
 
   # GET /attacks/1
@@ -75,6 +75,6 @@ class AttacksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attack_params
-      params.require(:attack).permit(:user_id, :started_at, :ended_at, :pain_level, :comment)
+      params.require(:attack).permit(:user_id, :started_at, :duration, :pain_level, :comment)
     end
 end

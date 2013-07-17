@@ -13,7 +13,7 @@
 
 <p>
   <strong>Dosed at:</strong>
-  <%= @dosing.dosed_at.to_s.gsub(/:\d\d UTC/, "") %>
+  <%= @dosing.dosed_at %> minutes later
 </p>
 
 <%= link_to 'Edit', edit_dosing_path(@dosing) %> |

@@ -5,7 +5,7 @@ class DosingsController < ApplicationController
   # GET /dosings
   # GET /dosings.json
   def index
-    @dosings = Dosing.where(:user_id => current_user.id)
+    @dosings = Dosing.where(:user_id => current_user.id).order("updated_at DESC")
   end
 
   # GET /dosings/1
@@ -47,6 +47,7 @@ class DosingsController < ApplicationController
   # PATCH/PUT /dosings/1.json
   def update
     respond_to do |format|
+      # TODO: Also update stocks!
       if @dosing.update(dosing_params)
         format.html { redirect_to @dosing, notice: 'Dosing was successfully updated.' }
         format.json { head :no_content }

@@ -3,7 +3,7 @@ class CreateAttacks < ActiveRecord::Migration
     create_table :attacks do |t|
       t.integer :user_id, :null => false
       t.datetime :started_at
-      t.datetime :ended_at
+      t.integer :duration
       t.integer :pain_level, :default => 5
       t.string :comment
 
