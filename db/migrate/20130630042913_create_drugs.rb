@@ -4,6 +4,7 @@ class CreateDrugs < ActiveRecord::Migration
       t.string :name, :null => false
       t.integer :price
       t.string :general_name, :null => false
+      t.string :url
 
       t.timestamps
     end

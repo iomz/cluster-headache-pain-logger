@@ -6,6 +6,7 @@
       <th>Name</th>
       <th>Price (yen)</th>
       <th>General name</th>
+      <th>Link</th>
     </tr>
   </thead>
 
@@ -15,6 +16,7 @@
         <td class='cells'><%= drug.name %></td>
         <td class='cells'><%= drug.price %></td>
         <td class='cells'><%= drug.general_name %></td>
+        <td class='cells'><a href="<%= drug.url %>">e-pharma.jp</a></td>
       </tr>
     <% end %>
   </tbody>
