@@ -52,3 +52,6 @@ gem 'protected_attributes'
 # For twitter-bootstrap
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
+
+# gon
+gem 'gon'

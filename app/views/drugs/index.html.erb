@@ -14,7 +14,7 @@
     <% @drugs.each do |drug| %>
       <tr>
         <td class='cells'><%= drug.name %></td>
-        <td class='cells'><%= drug.price %></td>
+        <td class='cells'><%= drug.price.to_s.reverse.gsub(%r{([0-9]{3}(?=([0-9])))}, "\\1#{','}").reverse %></td>
         <td class='cells'><%= drug.general_name %></td>
         <td class='cells'><a href="<%= drug.url %>">e-pharma.jp</a></td>
       </tr>
