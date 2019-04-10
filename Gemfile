@@ -46,7 +46,7 @@ end
 
 # For mail login
 gem 'will_paginate'
-gem 'devise'
+gem "devise", ">= 4.6.0"
 gem 'protected_attributes'
 
 # For twitter-bootstrap
